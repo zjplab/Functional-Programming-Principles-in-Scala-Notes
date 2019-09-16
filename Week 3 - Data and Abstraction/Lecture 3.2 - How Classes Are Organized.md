@@ -10,17 +10,30 @@
 
 + In order to import a named type from a package we do:
 
-        import progfun.examples.Hello
-        import progfun.examples.{Hello, Rational}   // imports more than one
+        import progfun.examples.Hello               //named import 
+        import progfun.examples.{Hello, Rational}   // imports more than one, named import
         import progfun.examples._                   // imports everything under examples
 
-+ All members of the packages `scala`, `java.lang` and the singleton object `scala.Predef` are auto imported.
++ All members of the packages:
+- `scala` 
+- `java.lang` 
+- and the singleton object `scala.Predef` are auto imported.
 
 ### Traits
 + In Scala, a class can have only one superclass. It's a single inheritance language.
 + If a class wants to inherit code from more than one supertype we use `traits`.
 + `traits` are declared like an `abstract class` with the keyword  `trait` instead of `abstract class`
+```scala
+trait Planar {
+def height: Int
+def width: Int
+def surface = height * width
+}
+```
 + Classes, objects and traits can inherit from at most one class but from many traits.
+```scala
+class Square extends Shape with Planar with Movable
+```
 + Classes inherit code from a trait with the `with` keyword.
 
         class Square extends Shape with Planar with Movable
